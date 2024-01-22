@@ -1,0 +1,6 @@
+@JsonWebToken_HostAddress = http://localhost:5109
+
+GET {{JsonWebToken_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
