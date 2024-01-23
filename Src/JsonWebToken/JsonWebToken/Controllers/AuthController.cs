@@ -18,15 +18,15 @@ namespace JsonWebToken.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> RegisterAsync([FromBody] RegisterDto dto)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            
+
             var result = await _authService.RegisterAsync(dto);
-            if(!result.isAuthenticated)
+            if (!result.isAuthenticated)
                 return BadRequest(result.Message);
 
-            return Ok(result);  
-            
+            return Ok(result);
+
         }
 
         [HttpPost("Login")]
@@ -35,7 +35,7 @@ namespace JsonWebToken.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var result = await _authService.GetTokenAsync(dto);
+            var result = await _authService.Login(dto);
             if (!result.isAuthenticated)
                 return BadRequest(result.Message);
 
@@ -54,6 +54,31 @@ namespace JsonWebToken.Controllers
                 return BadRequest(result);
 
             return Ok();
+
+        }
+
+        [HttpGet("refreshToken")]
+        public async Task<IActionResult> GetRefreshTokenAsync([FromBody] TokenRequestDto request)
+        {
+            var result = await _authService.GetRefreshTokenAsync(request.Token);
+            if (!result.isAuthenticated)
+                return BadRequest(result.Message);
+
+            return Ok(result);
+
+        }
+
+        [HttpPost("revokeToken")]
+        public async Task<IActionResult> RevokeTokenAsync([FromBody] TokenRequestDto request)
+        {
+            if (string.IsNullOrWhiteSpace(request.Token))
+                return BadRequest("Token is required");
+
+            var result = await _authService.RevokeTokenAsync(request.Token);
+            if (!result)
+                return BadRequest("Token is invalid!");
+
+            return Ok("Token is revoked!");
 
         }
     }

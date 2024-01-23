@@ -29,6 +29,6 @@ namespace JsonWebToken.DTOs
         [Required, MaxLength(128)]
         public string Email { get; set; } = string.Empty;
 
-        public string RoleName { get; set; }
+        public string RoleName { get; set; } = string.Empty;
     }
 }

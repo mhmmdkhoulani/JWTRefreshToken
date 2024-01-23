@@ -10,5 +10,7 @@ namespace JsonWebToken.Models
 
         [Required, MaxLength(50)]
         public string LastName { get; set; } = string.Empty;
+
+        public List<RefreshToken>? RefreshTokens { get; set; }
     }
 }

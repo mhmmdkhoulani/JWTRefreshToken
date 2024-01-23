@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JsonWebToken")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f5a9de9a06d11e6c85e83feb7b127b608fd096f9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f979eacb6a6336b1a05e3415f5d496219ebff894")]
 [assembly: System.Reflection.AssemblyProductAttribute("JsonWebToken")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JsonWebToken")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
